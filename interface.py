@@ -117,11 +117,10 @@ class AnimationCloseConfigBut(QThread):
 
         self.ui.config_but.clicked.connect(self.ui.func_animation_config_but_open)
 
-
 #create main window
 class Ui_MainWindow(object):
 
-    def setupUi(self, MainWindow):
+    def __init__(self, MainWindow):
         #start settings
         MainWindow.resize(1920, 1080)
 
@@ -139,7 +138,7 @@ class Ui_MainWindow(object):
 
         #inserting an image
         self.bg.setPixmap(QtGui.QPixmap("D:\programming\quiz\ground_new.png"))
-
+    def setupUi(self, MainWinodow):
         #labels
         self.bg_for_button = QtWidgets.QLabel(self.centralwidget)
         self.bg_for_button.move(665, 380)
@@ -213,10 +212,10 @@ class Ui_MainWindow(object):
             i.hide()
 
         #ToolTips
-        self.config_but.setToolTip('Открыть меню')
-        self.add_but.setToolTip("Создать новую викторину")
-        self.edit_but.setToolTip("Изменить созданные викторины")
-        self.settings_but.setToolTip("Открыть настройки")
+        #self.config_but.setToolTip('Открыть меню')
+        #self.add_but.setToolTip("Создать новую викторину")
+        #self.edit_but.setToolTip("Изменить созданные викторины")
+        #self.settings_but.setToolTip("Открыть настройки")
         
         #opacities
         self.opacity_change_menu = 13
@@ -337,7 +336,7 @@ if __name__ == "__main__":
     #creating
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow(MainWindow)
 
     #application of the ui
     ui.setupUi(MainWindow)
